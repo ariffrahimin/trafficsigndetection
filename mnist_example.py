@@ -23,6 +23,26 @@ model = tensorflow.keras.Sequential(
     ]
 )
 # functional approach : function that returns a model
+
+def functional_model():
+
+        my_input = Input(shape=(28, 28, 1))
+        x=Conv2D(32, (3, 3), activation='relu')(my_input)
+        x=Conv2D(64, (3, 3), activation='relu')(x)
+        x=MaxPool2D()(x)
+        x=BatchNormalization()(x)
+
+        x=Conv2D(128, (3, 3), activation='relu')(x)
+        x=MaxPool2D()(x)
+        x=BatchNormalization()(x)
+
+        x=GlobalAvgPool2D()(x)
+        x=Dense(64, activation='relu')(x)
+        x=Dense(10, activation='softmax')(x)
+
+        model = tensorflow.keras.Model(inputs=my_input, outputs=x)
+
+        return model
 # tensorflow.keras.Model: inherit from this class
 
 
@@ -50,4 +70,21 @@ if __name__ == '__main__':
     print("x_test.shape=", x_test.shape)
     print("y_test.shape=", y_test.shape)
 
-    display_some_examples(x_train, y_train)
+    if False:
+        display_some_examples(x_train, y_train)
+
+    x_train = x_train.astype('float32') / 255
+    x_test = x_test.astype('float32') / 255
+
+    x_train = np.expand_dims(x_train, axis=-1)
+    x_test = np.expand_dims(x_test, axis=-1)
+
+    y_train = tensorflow.keras.utils.to_categorical(y_train, 10)
+    y_test = tensorflow.keras.utils.to_categorical(y_test, 10)
+
+    model=functional_model()
+    model.compile(optimizer='adam', loss='categorical_crossentropy', metrics='accuracy')
+
+    model.fit(x_train, y_train, batch_size=64, epochs=3, validation_split=0.2)
+
+    model.evaluate(x_test, y_test, batch_size=64)
