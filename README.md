@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Trafficsigndetection" />
+  <img src="https://github.com/ariffrahimin/trafficsigndetection/blob/master/images/readmeimg/trafficlight.gif" alt="Trafficsigndetection" />
 
 &#xa0;
 
