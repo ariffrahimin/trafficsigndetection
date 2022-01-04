@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from tensorflow.keras.layers import Conv2D, Input, Dense, MaxPool2D, BatchNormalization, GlobalAvgPool2D
 from deeplearning_models import functional_model, MyCustomModel
+from my_utils import display_some_examples
 
 # tensorflow.keras.Sequential
 model = tensorflow.keras.Sequential(
@@ -23,25 +24,6 @@ model = tensorflow.keras.Sequential(
         Dense(10, activation='softmax')
     ]
 )
-
-
-
-
-def display_some_examples(examples, labels):
-    plt.figure(figsize=(10, 10))
-
-    for i in range(25):
-
-        idx = np.random.randint(0, examples.shape[0]-1)
-        img = examples[idx]
-        label = labels[idx]
-
-        plt.subplot(5, 5, i+1)
-        plt.title(str(label))
-        plt.imshow(img, cmap='gray')
-
-    plt.show()
-
 
 if __name__ == '__main__':
     (x_train, y_train), (x_test, y_test) = tensorflow.keras.datasets.mnist.load_data()
