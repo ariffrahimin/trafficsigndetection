@@ -52,6 +52,9 @@ Computer Vision for traffic sign
 
 :heavy_check_mark: In Construction
 
+## :bar_chart: Data
+For training and testing data, they were downloaded from kaggle. Specifically, the data is German Traffic Sign Recognition Benchmark or in short [GTSRB](https://www.kaggle.com/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign)
+
 ## :rocket: Technologies
 
 The following tools were used in this project:
