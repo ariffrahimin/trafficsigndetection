@@ -78,7 +78,7 @@ $ git clone https://github.com/ariffrahimin/trafficsigndetection
 
 ## :memo: License
 
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
+This project is under license from MIT. For more details, see the [LICENSE](https://github.com/ariffrahimin/trafficsigndetection/blob/master/LICENCE.md) file.
 
 Made with :heart: by <a href="https://github.com/ariffrahimin" target="_blank">ARIFF RAHIMIN BIN MOHAMED NORAZMAN</a>
 
