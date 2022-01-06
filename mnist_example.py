@@ -48,6 +48,6 @@ if __name__ == '__main__':
     model=MyCustomModel()
     model.compile(optimizer='adam', loss='categorical_crossentropy', metrics='accuracy')
 
-    model.fit(x_train, y_train, batch_size=64, epochs=3, validation_split=0.2)
+    model.fit(x_train, y_train, batch_size=64, epochs=10, validation_split=0.2)
 
     model.evaluate(x_test, y_test, batch_size=64)
