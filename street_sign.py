@@ -1,8 +1,8 @@
 from sklearn.model_selection import train_test_split
 from my_utils import split_data, order_test_set, create_generators
 from deeplearning_models import streetsigns_model
-from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping
-
+import datetime
+from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping, TensorBoard
 if __name__=="__main__":
 
 
@@ -26,7 +26,10 @@ if __name__=="__main__":
         verbose=1
     )
 
-    early_stop = EarlyStopping(monitor="vall_accuracy", patience=10)
+    early_stop = EarlyStopping(monitor="val_accuracy", patience=10)
+
+    log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    tb_call = TensorBoard(log_dir=log_dir, histogram_freq=1)
 
     model = streetsigns_model(nbr_classes)
 

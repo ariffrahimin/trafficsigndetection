@@ -57,6 +57,9 @@ def streetsigns_model(nbr_classes):
     my_input = Input(shape=(60,60, 3))
 
     x=Conv2D(32, (3, 3), activation='relu')(my_input)
+    x=MaxPool2D()(x)
+    x=BatchNormalization()(x)
+    
     x=Conv2D(64, (3, 3), activation='relu')(x)
     x=MaxPool2D()(x)
     x=BatchNormalization()(x)
